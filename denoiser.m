@@ -1,8 +1,14 @@
+% Amagnum
+% 20 OCT 2021
+
 img1 = imread('cameraman.tif');
 ft = fft2(img1);
 f_s = fftshift(ft);
 
 figure, imshow(log(1+f_s),[]);
+
+
+
 
 img_test = 35*ones(256,256);
 
@@ -14,22 +20,28 @@ figure, imshow(img_test);
 test_ft = fft2(img_test);
 figure, imshow(log(1+fftshift(test_ft)));
 
+
+
+
 img_n = double(img1) + img_test;
 figure, imshow(img_n,[]);
 ft_n = fft2(img_n);
-
 fs_n = fftshift(ft_n);
-
 figure, imshow(log(1+fs_n),[]);
 
+
+
+% Calculating threhold
 mag_fs = abs(fs_n);
 f_max = max(mag_fs,[], 'all');
 
-disp(f_orig);
-fsb = im2bw(mag_fs./(f_max/30),1);
+disp(f_max);
+fsb = im2bw(mag_fs./(f_max/30),1); % Binary threshold matrix
 
-rc = 128;
-cc = 128;
+
+
+rc = 128; % Row center
+cc = 128; % Column Center
 
 for i=1:256
     for j=1:256
