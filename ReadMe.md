@@ -4,7 +4,7 @@ This Matlab code will denoise the periodic noise present in a given image file.
 
 Here I have used the fast Fourier transformation method to convert the image to the Fourier domain. now the noise can be detected in the Fourier plot by finding bright spots.
 
-A fast Fourier transform (FFT) is an algorithm that computes the discrete Fourier transform (DFT) of a sequence, or its inverse (IDFT). Fourier analysis converts a signal from its original domain (often time or space) to a representation in the frequency domain and vice versa. (Wikipedia)
+> A fast Fourier transform (FFT) is an algorithm that computes the discrete Fourier transform (DFT) of a sequence, or its inverse (IDFT). Fourier analysis converts a signal from its original domain (often time or space) to a representation in the frequency domain and vice versa. (Wikipedia)
 
 **Note that:** This program can be used for removing/denoising a periodic noise from a given image file.
 
@@ -72,13 +72,14 @@ Note: here if you can notice, the bright spots in FFT of the new image (same in 
 
 From this point, we only work with the newly generated image (noisy one)
 
-Let’s write a function to calculate the intensities greater than a particular threshold in the FFT of the new image. 
+### Implimenting the threshold function:
+Let’s write a function to calculate the intensities greater than a particular threshold in the FFT of the new image. We set 
 
-We set threshold = Max( Magnitude ( FFT_New_Image ) ) / 30
+Threshold = Max( Magnitude ( FFT_New_Image ) ) / 30
 
 <table>
   <tr>
-    <td> <img src="image_0.png" width="" alt="alt_text" title="image_tooltip"> </td>
+    <td> <img src="image_0.png" width="500" alt="alt_text" title="image_tooltip"> </td>
     <td> <img src="Figure_6.png" width="" alt="alt_text" title="image_tooltip"> </td>
   </tr>
   <tr>
