@@ -12,8 +12,8 @@ A fast Fourier transform (FFT) is an algorithm that computes the discrete Fourie
 
 <table>
   <tr>
-    <td></td>
-    <td></td>
+    <td> <img src="Figure_8.png" width="" alt="alt_text" title="image_tooltip"> </td>
+    <td> <img src="Figure_7.png" width="" alt="alt_text" title="image_tooltip"> </td>
   </tr>
   <tr>
     <td>Cameraman.tif</td>
@@ -24,23 +24,22 @@ A fast Fourier transform (FFT) is an algorithm that computes the discrete Fourie
 
 ### create periodic noise:
 
-<table>
-  <tr>
-    <td>img_test = 35*ones(256,256);
+
+```Matlab
+img_test = 35*ones(256,256);
 for i = 1:16:size(img_test,2)
-   img_test(:,i:i+7) = -35;
+img_test(:,i:i+7) = -35;
 end
 figure, imshow(img_test);
 test_ft = fft2(img_test);
-figure, imshow(log(1+fftshift(test_ft)));</td>
-  </tr>
-</table>
+figure, imshow(log(1+fftshift(test_ft)));
+```
 
 
 <table>
   <tr>
-    <td></td>
-    <td></td>
+    <td> <img src="Figure_2.png" width="" alt="alt_text" title="image_tooltip"> </td>
+    <td> <img src="Figure_3.png" width="" alt="alt_text" title="image_tooltip"> </td>
   </tr>
   <tr>
     <td>periodic noise</td>
@@ -49,20 +48,18 @@ figure, imshow(log(1+fftshift(test_ft)));</td>
 </table>
 
 
-Add periodic noise to the image:
+### Add periodic noise to the image:
 
-<table>
-  <tr>
-    <td>img_n = double(img1) + img_test;
-figure, imshow(img_n,[]);</td>
-  </tr>
-</table>
+```matlab
+img_n = double(img1) + img_test;
+figure, imshow(img_n,[]);
+```
 
 
 <table>
   <tr>
-    <td></td>
-    <td></td>
+    <td> <img src="Figure_4.png" width="" alt="alt_text" title="image_tooltip"> </td>
+    <td> <img src="Figure_5.png" width="" alt="alt_text" title="image_tooltip"> </td>
   </tr>
   <tr>
     <td>Adding noise to Cameraman.tif</td>
@@ -81,8 +78,8 @@ We set threshold = Max( Magnitude ( FFT_New_Image ) ) / 30
 
 <table>
   <tr>
-    <td></td>
-    <td></td>
+    <td> <img src="image_0.png" width="" alt="alt_text" title="image_tooltip"> </td>
+    <td> <img src="Figure_6.png" width="" alt="alt_text" title="image_tooltip"> </td>
   </tr>
   <tr>
     <td>Applying the threshold function, and generating a binary matrix (Image)</td>
@@ -95,8 +92,8 @@ We set threshold = Max( Magnitude ( FFT_New_Image ) ) / 30
 
 <table>
   <tr>
-    <td></td>
-    <td></td>
+    <td> <img src="Figure_7.png" width="" alt="alt_text" title="image_tooltip"> </td>
+    <td> <img src="Figure_8.png" width="" alt="alt_text" title="image_tooltip"> </td>
   </tr>
   <tr>
     <td>Replacing the Bright spots by an average value in its neighbourhood.</td>
